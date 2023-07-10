@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+branch="$(git branch --show-current)"
+ci=${CI:-"false"}
+
+if [ "$branch" = "main" ] && [ "$ci" = "false" ]; then
+  echo "You can't commit directly to main branch"
+  exit 1
+fi
+
+npx lint-staged
+npm test

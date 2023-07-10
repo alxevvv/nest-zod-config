@@ -1,0 +1,11 @@
+{
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".spec.ts$",
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "modulePathIgnorePatterns": ["tests/_drafts/"],
+  "collectCoverageFrom": ["./lib/**/*.ts"],
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  }
+}

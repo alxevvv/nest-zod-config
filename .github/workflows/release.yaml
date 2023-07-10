@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup git
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Check Formatting
+        run: pnpm format
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Test
+        run: pnpm test:cov
+
+      - name: Build
+        run: pnpm build
+
+      - name: Release
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ./.npmrc
+          pnpm semantic-release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
