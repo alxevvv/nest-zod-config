@@ -1,6 +1,6 @@
 {
   "name": "nest-zod-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Define NestJS configuration with validation and type safety using zod",
   "keywords": [
     "config",

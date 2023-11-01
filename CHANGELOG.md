@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/alxevvv/nest-zod-config/compare/v1.0.0...v1.0.1) (2023-11-01)
+
+### Bug Fixes
+
+- get rid of barrel re-export from config loaders ([ebd65d3](https://github.com/alxevvv/nest-zod-config/commit/ebd65d3b78ea36db6f589b8b40e22ad2cb6fcbb5)), closes [#3](https://github.com/alxevvv/nest-zod-config/issues/3)
+
 ## 1.0.0 (2023-07-12)
 
 ### Features
