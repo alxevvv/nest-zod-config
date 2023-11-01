@@ -1,6 +1,4 @@
-import { ValueLoader } from 'config-loaders';
-
-import { loadConfig } from '../../lib';
+import { loadConfig, ValueLoader } from '../../lib';
 import { BasicConfig } from '../src';
 
 describe('Loading configuration outside of NestJS app', () => {

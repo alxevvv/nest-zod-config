@@ -1,9 +1,8 @@
 import { join } from 'node:path';
 
 import { DynamicModule, Module } from '@nestjs/common';
-import { DotEnvLoader, ValueLoader } from 'config-loaders';
 
-import { ZodConfig, ZodConfigModule, ZodConfigSchema } from '../../lib';
+import { DotEnvLoader, ValueLoader, ZodConfig, ZodConfigModule, ZodConfigSchema } from '../../lib';
 import { BasicConfig, DummyConfig } from './app.config';
 import { AppService } from './app.service';
 
